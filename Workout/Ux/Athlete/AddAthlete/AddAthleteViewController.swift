@@ -5,7 +5,7 @@
 
 import UIKit
 
-class AddAthlete: UITableViewController, AthleteDelegate, UIGestureRecognizerDelegate {
+class AddAthleteViewController: UITableViewController, AthleteDelegate, UIGestureRecognizerDelegate {
    
     // ---------------------------------------------------------------------------------------------
     // MARK: - Constant Defintions

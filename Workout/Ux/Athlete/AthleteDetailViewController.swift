@@ -109,7 +109,7 @@ class AthleteDetailViewController: UIViewController, UITableViewDelegate, UITabl
             //  Once we have that, we can tell that we are in "edit mode".
             //
             let viewController = segue.destination as! UINavigationController
-            let athleteController = viewController.viewControllers[0] as! AddAthlete
+            let athleteController = viewController.viewControllers[0] as! AddAthleteViewController
             athleteController.editAthlete(id: self.athlete.getId())
         }
     }

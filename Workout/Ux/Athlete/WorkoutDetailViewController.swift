@@ -14,7 +14,8 @@ class WorkoutDetailViewController: UITableViewController {
     private let ROWINDEX_TITLE      = 0
     private let ROWINDEX_DIFFICULTY = 1
     private let ROWINDEX_TYPE       = 2
-    private let ROWINDEX_DETAILS    = 3
+    private let ROWINDEX_KIND       = 3
+    private let ROWINDEX_DETAILS    = 4
     private let TAG_DETAILS         = 1000
     
     // ---------------------------------------------------------------------------------------------
@@ -86,6 +87,7 @@ class WorkoutDetailViewController: UITableViewController {
         case ROWINDEX_TITLE:        cell.textLabel?.text = self.workout.title
         case ROWINDEX_DIFFICULTY:   cell.textLabel?.text = self.workout.difficulty.description()
         case ROWINDEX_TYPE:         cell.textLabel?.text = self.workout.type.description()
+        case ROWINDEX_KIND:         cell.textLabel?.text = self.workout.kind.description()
         case ROWINDEX_DETAILS:
             let textView = cell.viewWithTag(self.TAG_DETAILS) as? UITextView
             textView?.text = self.workout.details

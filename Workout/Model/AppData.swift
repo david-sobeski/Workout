@@ -60,9 +60,19 @@ class AppData: NSObject {
         }
         
         //
-        //  Load the workout data from the JSON file.
+        //  Loads the athlete data from iPhone storage.
         //
-        self.loadWorkoutData()
+        if let value = UserDefaults.standard.object(forKey: self.WORKOUTDATA) {
+            self.workouts = (NSKeyedUnarchiver.unarchiveObject(with: value as! Data) as? [Workout])!
+        }
+        
+        //
+        //  When we load our workouts, and if our count is 0, then we want to load our default
+        //  workouts from workouts JSON file.
+        //
+        if self.getWorkoutCount() == 0 {
+            self.loadWorkoutData()
+        }
     }
     
     //
@@ -71,6 +81,10 @@ class AppData: NSObject {
     public func save() {
         let athleteSaveData = NSKeyedArchiver.archivedData(withRootObject: self.athletes)
         UserDefaults.standard.set(athleteSaveData, forKey: self.ATHLETEDATA)
+        
+        let workoutSaveData = NSKeyedArchiver.archivedData(withRootObject: self.workouts)
+        UserDefaults.standard.set(workoutSaveData, forKey: self.WORKOUTDATA)
+
         UserDefaults.standard.synchronize()
     }
     
@@ -111,6 +125,7 @@ class AppData: NSObject {
                     workout.title       = workoutItem.object(forKey: "title") as! String
                     workout.details     = workoutItem.object(forKey: "details") as! String
                     workout.difficulty  = Difficulty(rawValue: (workoutItem.object(forKey: "difficulty") as? Int)!)!
+                    workout.kind        = WorkoutKind(rawValue: (workoutItem.object(forKey: "kind") as? Int)!)!
                 
                     //
                     //  Add our workout to our workout array.
