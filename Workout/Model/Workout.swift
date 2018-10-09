@@ -41,7 +41,7 @@ class Workout: NSObject, NSCoding {
     var details: String             = ""
     var type: WorkoutType           = WorkoutType.running
     var difficulty: Difficulty      = Difficulty.easy
-    var kind: WorkoutKind           = WorkoutKind.any
+    var kind: WorkoutKind           = WorkoutKind.main
     
     // --------------------------------------------------------------------------------------------
     // MARK: - Initialization Methods
@@ -63,7 +63,7 @@ class Workout: NSObject, NSCoding {
         self.details    = aDecoder.decodeObject(forKey: WORKOUT_DETAILS) as? String ?? ""
         self.type       = WorkoutType(rawValue: aDecoder.decodeInteger(forKey: WORKOUT_TYPE)) ?? WorkoutType.running
         self.difficulty = Difficulty(rawValue: aDecoder.decodeInteger(forKey: WORKOUT_DIFFICULTY)) ?? Difficulty.easy
-        self.kind       = WorkoutKind(rawValue: aDecoder.decodeInteger(forKey: WORKOUT_KIND)) ?? WorkoutKind.any
+        self.kind       = WorkoutKind(rawValue: aDecoder.decodeInteger(forKey: WORKOUT_KIND)) ?? WorkoutKind.main
     }
     
     //
@@ -77,5 +77,15 @@ class Workout: NSObject, NSCoding {
         aCoder.encode(self.type.rawValue, forKey: WORKOUT_TYPE)
         aCoder.encode(self.difficulty.rawValue, forKey: WORKOUT_DIFFICULTY)
         aCoder.encode(self.kind.rawValue, forKey: WORKOUT_KIND)
+    }
+    
+    // --------------------------------------------------------------------------------------------
+    // MARK: - Public Methods
+    
+    //
+    //  Returns the id for the workout.
+    //
+    func getId() -> WorkoutID {
+        return self.id
     }
 }

@@ -208,21 +208,21 @@ class AppData: NSObject {
     //
     //  Returns the number of athletes in our internal array.
     //
-    func getAthleteCount() -> Int {
+    public func getAthleteCount() -> Int {
         return self.athletes.count
     }
     
     //
     //  Returns an athlete for a given index.
     //
-    func getAthlete(at index: Int) -> Athlete {
+    public func getAthlete(at index: Int) -> Athlete {
         return self.athletes[index]
     }
     
     //
     //  Returns an athlete by its ID.
     //
-    func getAthlete(id: AthleteID) -> (found: Bool, athlete: Athlete) {
+    public func getAthlete(id: AthleteID) -> (found: Bool, athlete: Athlete) {
         //
         //  Search for an athlete based on its id field. If found, return the athlete otherwise
         //  return nil.
@@ -244,21 +244,21 @@ class AppData: NSObject {
     //
     //  Returns the total number of workouts that we have stored.
     //
-    func getWorkoutCount() -> Int {
+    public func getWorkoutCount() -> Int {
         return self.workouts.count
     }
     
     //
     //  This method adds a new workout to our list.
     //
-    func addWorkout(workout: Workout) {
+    public func addWorkout(workout: Workout) {
         self.workouts.append(workout)
     }
     
     //
     //  This method will fetch a workout based on its ID.
     //
-    func getWorkoutByID(id: String) -> Workout? {
+    public func getWorkoutByID(id: String) -> Workout? {
         //
         //  Search for an workout based on its id field. If found, return the workout.
         //
@@ -275,7 +275,7 @@ class AppData: NSObject {
     //
     //  Returns an workout for a given index.
     //
-    func getWorkout(at index: Int) -> Workout {
+    public func getWorkout(at index: Int) -> Workout {
         return self.workouts[index]
     }
 }

@@ -6,7 +6,7 @@
             "title": "Light Swim Warm-Up",
             "details": "300, breathe on your weaker side on even lengths",
             "difficulty": 0,
-            "kind": 1
+            "kind": 0
         },
         {
             "id": "51F0F41D-3BCA-4B7F-90D9-A296509738B1",
@@ -14,7 +14,7 @@
             "title": "Light Swim Main Set",
             "details": "3 x 200 on cruise interval\n4 x 75, middle 25 backstroke, rest=10 seconds\n4 x 50, descend stroke count, rest=20 seconds\n3 x 100 on cruise, rest=05 seconds\n4 x 125, breathe every 3 strokes. Rest=10 seconds\n4 x 50 Free Golf\n\n* Cruise: An interval you can make consecutive 100-yard or -meter swims on with about 5-10 seconds rest.\n\n* Free Golf: Count your strokes and get your time on each 50. Add these numbers together to get your \"score\". Attempt to lower your score each round by either lowering stroke count, going faster, or doing both.",
             "difficulty": 0,
-            "kind": 2
+            "kind": 1
         },
         {
             "id": "0698E5CA-ECAE-4C14-8B71-58D66945FD06",
@@ -22,7 +22,7 @@
             "difficulty": 0,
             "title": "Basic Cool Down",
             "details": "200 Distance Per Stroke and breathe on your weaker side on odd lengths\n\n* Distance Per Stroke: Extend and glide as much as you can with each stroke.",
-            "kind": 3
+            "kind": 2
         },
         {
             "id": "C3B4392B-39CF-4051-BDAA-9C73AECEA1AA",
@@ -30,7 +30,7 @@
             "difficulty": 0,
             "title": "3200 Warm-Up",
             "details": "300 Choice",
-            "kind": 1
+            "kind": 0
         },
         {
             "id": "903727A8-1AB4-4C38-99D8-080EB1EE347B",
@@ -38,7 +38,7 @@
             "difficulty": 1,
             "title": "3200 Drill",
             "details": "4x100: 50 Fists / 25 Scull / 25 Count strokes, take 1 stroke off each time through, 15-second rest\n\n4x75: 25 Count strokes, take 1 stroke off each time through/50 Build, 10-second rest\n\n4x25: Easy, focus on excellent technique, 5-second rest\n\n* Scull: Kicking on your stomach, put your hands out in front of you with palms facing the bottom of the pool. Press your palms outward with the little finger toward the surface, then rotate your hand and press inward with the thumb up. Feel the water pressure in both directions and do a figure eight with your hands at approximately the same depth throughout. Feel your body slightly lift as you move your hands in and out, keep your kick going.",
-            "kind": 2
+            "kind": 1
         },
         {
             "id": "3F7BBFC4-AFC4-4832-A90C-7948C01B0A1A",
@@ -46,7 +46,7 @@
             "difficulty": 1,
             "title": "3200 Main Set",
             "details": "9x50: Descend 1-3, 4-6, 7-9 @ Cruise +5 seconds\n3x300: Descend 1-3 in the last 100 of each swim @ Cruise +15 seconds\n9x50:\n\n1,2 -- All FAST @ cruise -5 seconds\n3 -- All Easy @ cruise +15 seconds\n4-6 -- Repeat 1-3\n7-9 -- Repeat 1-3\n\n* Cruise: An interval you can comfortably swim 100 meters freestyle with about 10-15 seconds rest between 100s. Example: 5x100 on 1:45, coming in around 1:35 on each 100.\n\n* Descend: Get faster throughout the set. Example, 4x100 Descend 1-4. #1 would be relatively easy, #4 is HARD",
-            "kind": 2
+            "kind": 1
         },
         {
             "id": "8B1C8D4A-2CBC-40DD-BE2B-4086BEF17ECA",
@@ -54,7 +54,7 @@
             "difficulty": 1,
             "title": "3200 Swim/Kick",
             "details": "6x50: 12.5 yards or meters easy / 15 seconds vertical kick / 25 yards fast / 12.5 yards easy (pick your own rest)",
-            "kind": 2
+            "kind": 1
         },
         {
             "id": "C0FB4229-AC7E-4A2E-AC64-CDFD6D73C88C",
@@ -62,7 +62,7 @@
             "difficulty": 1,
             "title": "3200-Meter Swim Workout",
             "details": "WARM UP: 300 Choice\n\nDRILL:\n\n4x100: 50 Fists / 25 Scull / 25 Count strokes, take 1 stroke off each time through, 15-second rest\n\n4x75: 25 Count strokes, take 1 stroke off each time through/50 Build, 10-second rest\n\n4x25: Easy, focus on excellent technique, 5-second rest\n\nMAIN SET:\n\n9x50: Descend 1-3, 4-6, 7-9 @ Cruise +5 seconds\n3x300: Descend 1-3 in the last 100 of each swim @ Cruise +15 seconds\n9x50:\n\n1,2 -- All FAST @ cruise -5 seconds\n3 -- All Easy @ cruise +15 seconds\n4-6 -- Repeat 1-3\n7-9 -- Repeat 1-3\nSWIM/KICK:\n\n6x50: 12.5 yards or meters easy / 15 seconds vertical kick / 25 yards fast / 12.5 yards easy (pick your own rest)\n\nTOTAL: 3200\n\nCruise: An interval you can comfortably swim 100 meters freestyle with about 10-15 seconds rest between 100s. Example: 5x100 on 1:45, coming in around 1:35 on each 100.\n\nDescend: Get faster throughout the set. Example, 4x100 Descend 1-4. #1 would be relatively easy, #4 is HARD.\n\nScull: Kicking on your stomach, put your hands out in front of you with palms facing the bottom of the pool. Press your palms outward with the little finger toward the surface, then rotate your hand and press inward with the thumb up. Feel the water pressure in both directions and do a figure eight with your hands at approximately the same depth throughout. Feel your body slightly lift as you move your hands in and out, keep your kick going.",
-            "kind": 0
+            "kind": 1
         },
         {
             "id": "0F5BF6D5-90D9-40A4-998E-04282D21AD8F",
@@ -70,7 +70,7 @@
             "difficulty": 1,
             "title": "Strength Training Session A",
             "details": "Joint mobility warmup: 5-10 minutes\n\nBodyweight circuit, repeat 2-4x, no rest between exercises 60-120 seconds rest at end of each circuit:\n•    Bodyweight squats 30-60 seconds\n•    Pushups 30-60 seconds\n•    Pullups (negatives or hanging on bar are substitutes for beginners) 30-60 seconds\n\nDumbbell circuit, repeat 2-4x, no rest between exercises 60-120 seconds rest at end of each circuit:\n•    Dumbbell swings 30-60 sec/arm\n•    Bent-over dumbbell rows 30-60 seconds\n•    Overhead presses with dumbbells 30-60 seconds\n\nCool down with joint mobility and yoga, 5-10 minutes.",
-            "kind": 2
+            "kind": 1
         },
         {
             "id": "FBE073D9-513B-49E1-B43B-AAA5D9B88676",
@@ -78,7 +78,7 @@
             "difficulty": 1,
             "title": "Strength Training Session B",
             "details": "Joint mobility warmup: 5-10 minutes\n\nBodyweight circuit, repeat 2-4x, no rest between exercises 60-120 seconds rest at end of each circuit:\n•    Reverse lunges 30 sec/leg\n•    Close-hands pushups (AKA diamond pushups) 30-60 seconds\n•    Bodyweight rows 30-60 seconds\n\nMixed circuit, repeat 2-4x, no rest between exercises 60-120 seconds rest at end of each circuit:\n•    Dumbbell bench or chair step-ups 30 sec/leg\n•    Front plank on forearms 30-60 seconds\n•    Side plank 15-30 sec/side\n\nCool down with joint mobility and yoga, 5-10 minutes.",
-            "kind": 2
+            "kind": 1
         },
         {
             "id": "A7422EC6-A751-49F2-97BC-D10AB7701143",
@@ -86,7 +86,7 @@
             "difficulty": 1,
             "title": "Strength Training Session C",
             "details": "Joint mobility warmup: 5-10 minutes\n\nMixed circuit, repeat 2-4x, no rest between exercises 60-120 seconds rest at end of each circuit:\n•    Dumbbell front squats 35-60 seconds\n•    Bent-over dumbbell rows 35-60 seconds\n•    Lateral lunges 15-30 sec/side\n•    Pushups with hands on dumbbells (get deeper into range of motion) 35-60 seconds\n\nMixed circuit, repeat 2-4x, no rest between exercises 60-120 seconds rest at end of each circuit:\n•    Forward lunges 30 sec/leg\n•    Mixed grip pullups (negatives or hanging on bar are substitute for beginners) 30-60 sec.\n•    Incline pushups 30-60 seconds\n•    Front plank 40-70 seconds\n\nCool down with joint mobility and yoga, 5-10 minutes.",
-            "kind": 2
+            "kind": 1
         },
         {
             "id": "",
@@ -94,7 +94,7 @@
             "difficulty": 1,
             "title": "Strength Training Session D",
             "details": "Joint mobility warmup: 5-10 minutes\n\nMixed circuit, repeat 2-4x, no rest between exercises 60-120 seconds rest at end of each circuit:\n•    Dumbbell deadlifts 30-60 seconds\n•    Bodyweight rows 35-60 sec.\n•    Single-arm dumbbell swings 35 sec/side\n•    Pushups 35-60 sec.\n•    Hold top pushup position for 15-30 seconds after finishing repetitions – contract abs and lengthen out your spine in two opposing directions.\n\nMixed circuit, repeat 2-4x, no rest between exercises 60-120 seconds rest at end of each circuit:\n•    Walking lunges 30 sec/leg\n•    Inchworm exercise 30-60 seconds\n•    Alternating overhead presses with dumbbells 30-60 seconds\n•    Side planks with elbow locked (arm straight) 20-40 sec/side",
-            "kind": 2
+            "kind": 1
         }
     ]
 }

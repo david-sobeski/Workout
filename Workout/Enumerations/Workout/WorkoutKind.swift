@@ -8,11 +8,10 @@
 import Foundation
 
 enum WorkoutKind: Int {
-    case any, warmup, main, cooldown
+    case warmup, main, cooldown
     
     func description() -> String {
         switch self {
-        case .any:      return "Any"
         case .warmup:   return "Warm-Up"
         case .main:     return "Main"
         case .cooldown: return "Cool Down"

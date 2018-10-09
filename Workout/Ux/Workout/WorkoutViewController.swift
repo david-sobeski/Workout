@@ -6,6 +6,14 @@ import UIKit
 
 class WorkooutViewController: UITableViewController {
     // ---------------------------------------------------------------------------------------------
+    // MARK: - Constant Defintions
+    
+    private let NUMBER_OF_SECTIONS: Int     = 3
+    private let SECTION_WORKOUT_TYPES: Int  = 0
+    private let SECTION_WORKOUT_KINDS: Int  = 1
+    private let SECTION_WORKOUT_ALL: Int    = 2
+    
+    // ---------------------------------------------------------------------------------------------
     // MARK: - Private Properties
     
     private var selectedWorkout: Int    = 0
@@ -87,19 +95,41 @@ class WorkooutViewController: UITableViewController {
     //  controls.
     //
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //
-        //  Fetch our reusable cell and retrieve the cell components.
-        //
-        let cell = tableView.dequeueReusableCell(withIdentifier: "workoutCell")!
+        var cell: UITableViewCell = UITableViewCell()
         
         //
-        //  Set our text label with the workout title.
+        //  Based on our section, return the appropriate cell and data.
         //
-        if AppData.shared.getWorkoutCount() > 0 {
-            let workout = AppData.shared.getWorkout(at: indexPath.row)
-            cell.textLabel?.text = workout.title
+        switch indexPath.section {
+        case SECTION_WORKOUT_TYPES:
+            //
+            //  Show the user our workout types.
+            //
+            cell = tableView.dequeueReusableCell(withIdentifier: "workoutTypeCell")!
+            cell.textLabel?.text =  WorkoutType.types[indexPath.row].description()
+            
+        case SECTION_WORKOUT_KINDS:
+            //
+            //  Show the user our workout kinds.
+            //
+            cell = tableView.dequeueReusableCell(withIdentifier: "workoutTypeCell")!
+            cell.textLabel?.text =  WorkoutKind.kinds[indexPath.row].description()
+            
+        case SECTION_WORKOUT_ALL:
+            //
+            //  Fetch our reusable cell and retrieve the cell components. We do this to show
+            //  all of our workouts.
+            //
+            cell = tableView.dequeueReusableCell(withIdentifier: "workoutCell")!
+            if AppData.shared.getWorkoutCount() > 0 {
+                let workout = AppData.shared.getWorkout(at: indexPath.row)
+                cell.textLabel?.text = workout.title
+            }
+            
+        default:
+            break
         }
-        
+
         return cell
     }
     
@@ -107,7 +137,24 @@ class WorkooutViewController: UITableViewController {
     //  Return the number of sections in the table view.
     //
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return NUMBER_OF_SECTIONS
+    }
+    
+    //
+    //  Returns the name for the section.
+    //
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var header: String = ""
+        
+        switch section {
+        case SECTION_WORKOUT_TYPES:     header = "Workouts by Type"
+        case SECTION_WORKOUT_KINDS:     header = "Workouts by Kind"
+        case SECTION_WORKOUT_ALL:       header = "All Workouts"
+        default:
+            break
+        }
+        
+        return header
     }
     
     //
@@ -115,9 +162,42 @@ class WorkooutViewController: UITableViewController {
     //
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //
-        //  We simply return the number of athletes we have stored.
+        //  Depending on section, return the correct count. If SECTION_WORKOUT_TYPES, then return
+        //  the count for the number of types we have, otherwise if it is SECTION_WORKOUT_ALL,
+        //  then return the total number of workouts that we have.
         //
-        return AppData.shared.getWorkoutCount()
+        var count: Int = 0
+        
+        switch section {
+        case SECTION_WORKOUT_TYPES:
+            count = WorkoutType.count
+        case SECTION_WORKOUT_KINDS:
+            count = WorkoutKind.count
+        case SECTION_WORKOUT_ALL:
+            count = AppData.shared.getWorkoutCount()
+        default:
+            break
+        }
+        
+        return count
+    }
+    
+    //
+    //  Returns true if the row in the table supports begining editable. We use this method
+    //  in conjunction with editingStyle to allow the user to swipe and see the delete button.
+    //
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    // ---------------------------------------------------------------------------------------------
+    // MARK: - UITableViewDelegate Methods
+    
+    //
+    //  We support the delete action. So, if the user swipes on a table cell from right to left,
+    //  we show a delete button and allow for the delete if tapped.
+    //
+    override func tableView(_ tableView: UITableView, commit editingStyle:   UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     }
     
     //

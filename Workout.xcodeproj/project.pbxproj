@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F22A5BB2163CC7300C12135 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F22A5BA2163CC7300C12135 /* UIColor+Extension.swift */; };
+		5F483E72216CD48800912DE1 /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F483E71216CD48800912DE1 /* AddWorkoutViewController.swift */; };
 		5F49F5B02165405D00403717 /* AthleteInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F49F5AF2165405D00403717 /* AthleteInfoViewController.swift */; };
 		5F529AD0216B5BA500D2E7AB /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F529ACF216B5BA500D2E7AB /* WorkoutViewController.swift */; };
 		5F529AD2216B5DB100D2E7AB /* WorkoutKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F529AD1216B5DB100D2E7AB /* WorkoutKind.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		5F22A5BA2163CC7300C12135 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		5F483E71216CD48800912DE1 /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewController.swift; sourceTree = "<group>"; };
 		5F49F5AF2165405D00403717 /* AthleteInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteInfoViewController.swift; sourceTree = "<group>"; };
 		5F529ACF216B5BA500D2E7AB /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		5F529AD1216B5DB100D2E7AB /* WorkoutKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutKind.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		5F529ACE216B5B9100D2E7AB /* AddWorkout */ = {
 			isa = PBXGroup;
 			children = (
+				5F483E71216CD48800912DE1 /* AddWorkoutViewController.swift */,
 			);
 			path = AddWorkout;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				5F96866F20C9430D009D4975 /* AthleteViewController.swift in Sources */,
 				5F49F5B02165405D00403717 /* AthleteInfoViewController.swift in Sources */,
 				5F854B24215E27E300D7066B /* SportsViewController.swift in Sources */,
+				5F483E72216CD48800912DE1 /* AddWorkoutViewController.swift in Sources */,
 				5FB248A021651CDD00AC2ABF /* AthleteDetailViewController.swift in Sources */,
 				5F22A5BB2163CC7300C12135 /* UIColor+Extension.swift in Sources */,
 				5F66F936215BD07600411E65 /* Workout.swift in Sources */,
