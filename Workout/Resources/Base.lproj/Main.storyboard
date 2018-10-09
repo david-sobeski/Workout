@@ -527,7 +527,7 @@
         <scene sceneID="FUd-u7-Brz">
             <objects>
                 <tableViewController id="gK5-Nf-4mg" customClass="AddWorkoutViewController" customModule="Workout" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hos-Go-ywj">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hos-Go-ywj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -694,6 +694,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="detailsTextView" destination="ofu-h8-pl2" id="qGd-Mf-hDU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjE-9t-Pl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1363,6 +1366,6 @@
         <segue reference="hU2-m5-YHU"/>
         <segue reference="Mbk-3W-e58"/>
         <segue reference="Yft-H4-eR3"/>
-        <segue reference="liz-um-tH6"/>
+        <segue reference="gCk-rP-cW2"/>
     </inferredMetricsTieBreakers>
 </document>

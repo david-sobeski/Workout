@@ -26,7 +26,9 @@ class AddWorkoutViewController: UITableViewController, UIGestureRecognizerDelega
 
     
     // ---------------------------------------------------------------------------------------------
-    // MARK: - Private Properties
+    // MARK: - IBOutlets
+    
+    @IBOutlet var detailsTextView: UITextView!
     
     // ---------------------------------------------------------------------------------------------
     // MARK: - UIViewController Methods
@@ -39,6 +41,10 @@ class AddWorkoutViewController: UITableViewController, UIGestureRecognizerDelega
     //
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.detailsTextView.layer.borderWidth = 1.0
+        self.detailsTextView.layer.cornerRadius = 8.0
+        self.detailsTextView.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     //
@@ -113,6 +119,11 @@ class AddWorkoutViewController: UITableViewController, UIGestureRecognizerDelega
     //  The specified row is now selected.
     //
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
+        //  If the keyboard is displayed, hide it.
+        //
+        self.view.endEditing(true)
+
         //
         //  We don't want to row to be in grey, so we immediately deselect the row.
         //
