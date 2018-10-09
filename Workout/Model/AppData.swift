@@ -130,7 +130,7 @@ class AppData: NSObject {
                     //
                     //  Add our workout to our workout array.
                     //
-                    self.workouts.append(workout)
+                    self.addWorkout(workout: workout)
                 }
             }
         } catch {
@@ -252,7 +252,7 @@ class AppData: NSObject {
         //  type. Therefore, we will sort the array and then we will save the new data.
         //
         workouts.sort {
-            $0.type.rawValue < $1.type.rawValue
+            $0.kind.rawValue < $1.kind.rawValue
         }
         
         self.save()

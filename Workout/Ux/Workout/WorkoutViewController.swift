@@ -127,6 +127,7 @@ class WorkooutViewController: UITableViewController {
             if AppData.shared.getWorkoutCount() > 0 {
                 let workout = AppData.shared.getWorkout(at: indexPath.row)
                 cell.textLabel?.text = workout.title
+                cell.detailTextLabel?.text = "\(workout.kind.description())"
             }
             
         default:

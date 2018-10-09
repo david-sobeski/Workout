@@ -8,7 +8,7 @@
 import Foundation
 
 enum WorkoutType: Int {
-    case running, swimming, cycling, weightlifting, strength
+    case running, swimming, cycling, weightlifting, strength, cardio
     
     func description() -> String {
         switch self {
@@ -17,6 +17,7 @@ enum WorkoutType: Int {
         case .cycling:          return "Cycling"
         case .weightlifting:    return "Weight Lifting"
         case .strength:         return "Strength Training"
+        case .cardio:           return "Cardio"
         }
     }
     
