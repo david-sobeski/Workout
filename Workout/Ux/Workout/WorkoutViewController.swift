@@ -75,12 +75,15 @@ class WorkooutViewController: UITableViewController {
     //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //
-        //  We set our delegate based on the segue that was initiated.
+        //  If it is the workout detail that was tapped, then we set our workout information to
+        //  the workout detail view controller that is about to be displayed.
         //
-        //if segue.identifier ==  "athleteDetailSegue" {
-        //    let viewController = segue.destination as! WorkoutDetailViewController
-        //    viewController.setWorkout(workout: appData.getAthlete(at: self.selectedAthlete))
-        //}
+        if segue.identifier == "workoutDetailSegue2" {
+            let viewController = segue.destination as! WorkoutDetailViewController
+            let workout = AppData.shared.getWorkout(at: self.selectedWorkout)
+            viewController.setWorkout(workout: workout)
+            viewController.navigationItem.title = "Details"
+        }
     }
     
     // ---------------------------------------------------------------------------------------------

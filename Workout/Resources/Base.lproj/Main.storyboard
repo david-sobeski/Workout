@@ -170,6 +170,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="zE3-ds-Wi2" kind="show" identifier="workoutDetailSegue2" id="2yL-dI-ZjE"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="workoutTypeCell" textLabel="L0J-eC-kQy" style="IBUITableViewCellStyleDefault" id="658-4v-3Lh">
                                 <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
@@ -541,7 +544,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C8c-Ej-GpA">
+                                                <textField opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C8c-Ej-GpA">
                                                     <rect key="frame" x="16" y="13" width="343" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -580,8 +583,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="xqT-sH-hhG" kind="show" id="Yft-H4-eR3"/>
-                                            <segue destination="xqT-sH-hhG" kind="show" trigger="accessoryAction" id="H2t-K5-Nad"/>
+                                            <segue destination="xqT-sH-hhG" kind="show" identifier="workoutTypeSegue" id="Yft-H4-eR3"/>
+                                            <segue destination="xqT-sH-hhG" kind="show" identifier="workoutTypeAccessorySegue" trigger="accessoryAction" id="H2t-K5-Nad"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="MMq-zU-Iyb" detailTextLabel="IcR-qs-YEr" style="IBUITableViewCellStyleValue1" id="kX0-q7-xGP">
@@ -608,8 +611,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="qXX-xS-x0b" kind="show" id="Mbk-3W-e58"/>
-                                            <segue destination="qXX-xS-x0b" kind="show" trigger="accessoryAction" id="JQV-n8-Ltk"/>
+                                            <segue destination="qXX-xS-x0b" kind="show" identifier="workoutKindSegue" id="Mbk-3W-e58"/>
+                                            <segue destination="qXX-xS-x0b" kind="show" identifier="workoutKindAccessorySegue" trigger="accessoryAction" id="JQV-n8-Ltk"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="GnY-bP-u41" detailTextLabel="60g-Qd-dWB" style="IBUITableViewCellStyleValue1" id="UUg-Tk-O3W">
@@ -636,8 +639,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="2YE-gQ-LS7" kind="show" id="hU2-m5-YHU"/>
-                                            <segue destination="2YE-gQ-LS7" kind="show" trigger="accessoryAction" id="Ad7-Eh-QGv"/>
+                                            <segue destination="2YE-gQ-LS7" kind="show" identifier="difficultySegue" id="hU2-m5-YHU"/>
+                                            <segue destination="2YE-gQ-LS7" kind="show" identifier="difficultyAccessorySegue" trigger="accessoryAction" id="Ad7-Eh-QGv"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="237" id="J0Z-gu-zs5">
@@ -647,7 +650,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="236.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ofu-h8-pl2">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1001" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ofu-h8-pl2">
                                                     <rect key="frame" x="16" y="40" width="343" height="186"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -688,7 +691,7 @@
                                 <action selector="onCancel:" destination="gK5-Nf-4mg" id="bn8-k2-gUG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="R6z-6a-LOm">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="R6z-6a-LOm">
                             <connections>
                                 <action selector="onSave:" destination="gK5-Nf-4mg" id="zyp-0j-yKI"/>
                             </connections>
@@ -696,17 +699,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="detailsTextView" destination="ofu-h8-pl2" id="qGd-Mf-hDU"/>
+                        <outlet property="titleTextField" destination="C8c-Ej-GpA" id="6Q6-kK-fKw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjE-9t-Pl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3169" y="-1814"/>
+            <point key="canvasLocation" x="4007" y="-1821"/>
         </scene>
         <!--Type-->
         <scene sceneID="EGu-8s-rdX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HFv-wU-yQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController title="Type" id="xqT-sH-hhG" sceneMemberID="viewController">
+                <tableViewController title="Type" id="xqT-sH-hhG" customClass="TypeViewController" customModule="Workout" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="euK-fi-fw9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -736,8 +739,9 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HFv-wU-yQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4223" y="-2184"/>
+            <point key="canvasLocation" x="5062" y="-2192"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gz9-gR-4ic">
@@ -761,12 +765,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhx-JQ-Xbm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2465" y="-1814"/>
+            <point key="canvasLocation" x="3303" y="-1821"/>
         </scene>
         <!-- Kind-->
         <scene sceneID="Bki-f2-Phk">
             <objects>
-                <tableViewController title=" Kind" id="qXX-xS-x0b" sceneMemberID="viewController">
+                <tableViewController title=" Kind" id="qXX-xS-x0b" customClass="KindViewController" customModule="Workout" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6g7-Gb-LRr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -798,18 +802,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUz-lH-uRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5015" y="-1814"/>
+            <point key="canvasLocation" x="5854" y="-1821"/>
         </scene>
         <!--Difficulty-->
         <scene sceneID="3JV-q8-HoN">
             <objects>
-                <tableViewController title="Difficulty" id="2YE-gQ-LS7" sceneMemberID="viewController">
+                <tableViewController title="Difficulty" id="2YE-gQ-LS7" customClass="DifficultyViewController" customModule="Workout" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="R9T-cr-Eks">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="workoutCellDifficulty" textLabel="Xpu-JC-Wgz" style="IBUITableViewCellStyleDefault" id="EUT-tn-NmQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="difficultyCell" textLabel="Xpu-JC-Wgz" style="IBUITableViewCellStyleDefault" id="EUT-tn-NmQ">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EUT-tn-NmQ" id="EMF-di-b7f">
@@ -835,7 +839,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8h2-lJ-GY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4223" y="-1430"/>
+            <point key="canvasLocation" x="5062" y="-1438"/>
         </scene>
         <!--Gender-->
         <scene sceneID="G43-A7-o9w">
@@ -1360,6 +1364,7 @@
         <image name="Dumbell" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="2yL-dI-ZjE"/>
         <segue reference="ubx-PL-8CL"/>
         <segue reference="NWN-H8-0jj"/>
         <segue reference="cIo-H8-mkU"/>

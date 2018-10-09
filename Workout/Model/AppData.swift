@@ -242,19 +242,29 @@ class AppData: NSObject {
     // MARK: - Workout Methods
     
     //
+    //  We use this method to add a new workout to the system.
+    //
+    public func addWorkout(workout: Workout) {
+        self.workouts.append(workout)
+        
+        //
+        //  We want to ensure that all of our workouts are sorted in the array via their
+        //  type. Therefore, we will sort the array and then we will save the new data.
+        //
+        workouts.sort {
+            $0.type.rawValue < $1.type.rawValue
+        }
+        
+        self.save()
+    }
+    
+    //
     //  Returns the total number of workouts that we have stored.
     //
     public func getWorkoutCount() -> Int {
         return self.workouts.count
     }
-    
-    //
-    //  This method adds a new workout to our list.
-    //
-    public func addWorkout(workout: Workout) {
-        self.workouts.append(workout)
-    }
-    
+
     //
     //  This method will fetch a workout based on its ID.
     //

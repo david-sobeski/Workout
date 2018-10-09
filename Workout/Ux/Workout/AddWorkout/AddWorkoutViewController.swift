@@ -9,8 +9,7 @@
 
 import UIKit
 
-class AddWorkoutViewController: UITableViewController, UIGestureRecognizerDelegate {
-    
+class AddWorkoutViewController: UITableViewController, UIGestureRecognizerDelegate, WorkoutDelegate {
     // ---------------------------------------------------------------------------------------------
     // MARK: - Constant Defintions
     
@@ -24,10 +23,17 @@ class AddWorkoutViewController: UITableViewController, UIGestureRecognizerDelega
     private let ROWINDEX_DIFFICULTY     = 3
     private let ROWINDEX_DETAILS        = 4
 
+    // ---------------------------------------------------------------------------------------------
+    // MARK: - Private Properties
+    
+    private var selectedType: WorkoutType       = WorkoutType.running
+    private var selectedKind: WorkoutKind       = WorkoutKind.main
+    private var selectedDifficulty: Difficulty  = Difficulty.easy
     
     // ---------------------------------------------------------------------------------------------
     // MARK: - IBOutlets
     
+    @IBOutlet var titleTextField: UITextField!
     @IBOutlet var detailsTextView: UITextView!
     
     // ---------------------------------------------------------------------------------------------
@@ -93,6 +99,26 @@ class AddWorkoutViewController: UITableViewController, UIGestureRecognizerDelega
     //  data on the destination view controller.
     //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //
+        //  We set our delegate based on the segue that was initiated.
+        //
+        if segue.identifier ==  "workoutTypeSegue" || segue.identifier == "workoutTypeAccessorySegue" {
+            let viewController = segue.destination as! TypeViewController
+            viewController.delegate = self
+            viewController.setSelectedType(type: self.selectedType)
+        }
+        
+        if segue.identifier ==  "workoutKindSegue" || segue.identifier == "workoutKindAccessorySegue" {
+            let viewController = segue.destination as! KindViewController
+            viewController.delegate = self
+            viewController.setSelectedKind(kind: self.selectedKind)
+        }
+        
+        if segue.identifier ==  "difficultySegue" || segue.identifier == "difficultyAccessorySegue" {
+            let viewController = segue.destination as! DifficultyViewController
+            viewController.delegate = self
+            viewController.setSelectedDifficulty(difficulty: self.selectedDifficulty)
+        }
     }
     
     // ---------------------------------------------------------------------------------------------
@@ -112,7 +138,18 @@ class AddWorkoutViewController: UITableViewController, UIGestureRecognizerDelega
     // ---------------------------------------------------------------------------------------------
     // MARK: - UITableViewDelegate Methods
     
+    //
+    //  Our table view cell is about to be displayed.
+    //
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case ROWINDEX_TYPE:         cell.detailTextLabel!.text = selectedType.description()
+        case ROWINDEX_KIND:         cell.detailTextLabel!.text = selectedKind.description()
+        case ROWINDEX_DIFFICULTY:   cell.detailTextLabel!.text = selectedDifficulty.description()
+
+        default:
+            break
+        }
     }
     
     //
@@ -131,6 +168,33 @@ class AddWorkoutViewController: UITableViewController, UIGestureRecognizerDelega
     }
     
     // ---------------------------------------------------------------------------------------------
+    // MARK: - WorkoutDelegate Methods
+    
+    //
+    //  The user changed the workout type. We set the new selection and reload our table data.
+    //
+    func setType(type: WorkoutType) {
+        self.selectedType = type
+        self.tableView.reloadData()
+    }
+    
+    //
+    //  The user changed the workout kind. We set the new selection and reload our table data.
+    //
+    func setKind(kind: WorkoutKind) {
+        self.selectedKind = kind
+        self.tableView.reloadData()
+    }
+    
+    //
+    //  The user changed the workout difficulty. We set the new selection and reload our table data.
+    //
+    func setDifficulty(difficulty: Difficulty) {
+        self.selectedDifficulty = difficulty
+        self.tableView.reloadData()
+    }
+        
+    // ---------------------------------------------------------------------------------------------
     // MARK: - IBAction Methods
     
     //
@@ -147,6 +211,19 @@ class AddWorkoutViewController: UITableViewController, UIGestureRecognizerDelega
     //  Called when the user taps the save button.
     //
     @IBAction func onSave(_ sender: UIBarButtonItem) {
+        //
+        //  We need to save our new workout that the user added.
+        //
+        let workout: Workout = Workout()
+        
+        workout.title       = self.titleTextField.text!
+        workout.details     = self.detailsTextView.text!
+        workout.type        = self.selectedType
+        workout.kind        = self.selectedKind
+        workout.difficulty  = self.selectedDifficulty
+        
+        AppData.shared.addWorkout(workout: workout)
+        
         //
         //  Dismiss our screen to return to the list of athletes.
         //

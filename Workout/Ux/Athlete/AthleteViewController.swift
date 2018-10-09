@@ -52,6 +52,16 @@ class AthleteViewController: UITableViewController {
     }
     
     //
+    //  The preferred status bar style for the view controller.
+    //
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        //
+        //  We return lightContent because we want the status text to be white.
+        //
+        return .lightContent
+    }
+    
+    //
     //  The segue object containing information about the view controllers involved in the segue.
     //
     //  The default implementation of this method does nothing. Subclasses override this method and
