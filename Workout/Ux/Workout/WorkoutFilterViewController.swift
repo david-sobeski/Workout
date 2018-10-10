@@ -1,26 +1,17 @@
 //
-//  WorkoutViewController.swift
+//  WorkoutFilterViewController.swift
 //
 
 import UIKit
 
-class WorkooutViewController: UITableViewController {
-    // ---------------------------------------------------------------------------------------------
-    // MARK: - Constant Defintions
-    
-    private let FILTER_ALL: Int         = 0
-    private let FILTER_TYPE: Int        = 1
-    private let FILTER_KIND: Int        = 2
-    
+class WorkooutFilterViewController: UITableViewController {
     // ---------------------------------------------------------------------------------------------
     // MARK: - Private Properties
     
-    private var selectedWorkout: Int    = 0
-    
-    // ---------------------------------------------------------------------------------------------
-    // MARK: - IBOutlets
-    
-    @IBOutlet var workoutFilter: UISegmentedControl!
+    private var filteredWorkouts: [Workout] = []
+    private var filterByType: WorkoutType?
+    private var filterByKind: WorkoutKind?
+    private var selectedWorkout: Int        = 0
     
     // ---------------------------------------------------------------------------------------------
     // MARK: - UIViewController Methods
@@ -45,6 +36,15 @@ class WorkooutViewController: UITableViewController {
     //
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //
+        //  We need to load our data based on what we are filtering by...
+        //
+        if filterByType != nil {
+            self.filteredWorkouts = AppData.shared.getWorkoutsByType(self.filterByType!)
+        } else if filterByKind != nil {
+            self.filteredWorkouts = AppData.shared.getWorkoutsByKind(self.filterByKind!)
+        }
         
         //
         //  When the view appears, we reload the athlete data because it might have changed.
@@ -82,31 +82,10 @@ class WorkooutViewController: UITableViewController {
         //  If it is the workout detail that was tapped, then we set our workout information to
         //  the workout detail view controller that is about to be displayed.
         //
-        if segue.identifier == "workoutDetailSegue2" {
+        if segue.identifier == "workoutFilterBySegue" {
             let viewController = segue.destination as! WorkoutDetailViewController
-            let workout = AppData.shared.getWorkout(at: self.selectedWorkout)
-            viewController.setWorkout(workout: workout)
+            viewController.setWorkout(workout: self.filteredWorkouts[self.selectedWorkout])
             viewController.navigationItem.title = "Details"
-        }
-        
-        //
-        //  In this, the user selected a filter by Type or Kind. This gives us a list and when
-        //  we tap on a table cell, we now need to transition to a view that shows our filtered
-        //  workout list.
-        //
-        //  1. We set the title of the WorkoutFilterViewController to be that of the type that
-        //     was selected.
-        //  2. We need to call the method on what we are displaying.
-        //
-        if segue.identifier == "workoutFilterSegue" || segue.identifier == "workoutFilterAccessorySegue" {
-            let viewController = segue.destination as! WorkooutFilterViewController
-            if self.workoutFilter.selectedSegmentIndex == 1 {
-                viewController.navigationItem.title = WorkoutType.types[self.selectedWorkout].description()
-                viewController.filterByType(type: WorkoutType.types[self.selectedWorkout])
-            } else if self.workoutFilter.selectedSegmentIndex == 2 {
-                viewController.navigationItem.title = WorkoutKind.kinds[self.selectedWorkout].description()
-                viewController.filterByKind(kind: WorkoutKind.kinds[self.selectedWorkout])
-            }
         }
     }
     
@@ -122,26 +101,18 @@ class WorkooutViewController: UITableViewController {
     //  controls.
     //
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "workoutCell")!
+        cell.textLabel?.text = self.filteredWorkouts[indexPath.row].title
         
-        if self.workoutFilter.selectedSegmentIndex == self.FILTER_ALL {
-            cell = tableView.dequeueReusableCell(withIdentifier: "workoutCell")!
-            if AppData.shared.getWorkoutCount() > 0 {
-                let workout = AppData.shared.getWorkout(at: indexPath.row)
-                cell.textLabel?.text = workout.title
-                cell.detailTextLabel?.text = "\(workout.kind.description())"
-            }
-        } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: "workoutTypeCell")!
-            switch self.workoutFilter.selectedSegmentIndex {
-            case FILTER_TYPE:
-                cell.textLabel?.text = WorkoutType.types[indexPath.row].description()
-            case FILTER_KIND:
-                cell.textLabel?.text = WorkoutKind.kinds[indexPath.row].description()
-            default:
-                break
-            }
+        //
+        //  We set our detailed text label based on what we are filtering.
+        //
+        if filterByType != nil {
+            cell.detailTextLabel?.text = self.filteredWorkouts[indexPath.row].kind.description()
+        } else if filterByKind != nil {
+            cell.detailTextLabel?.text = self.filteredWorkouts[indexPath.row].type.description()
         }
+        
         return cell
     }
     
@@ -156,42 +127,21 @@ class WorkooutViewController: UITableViewController {
     //  Return the number of rows in a given section of a table view.
     //
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var count: Int = 0
-        switch self.workoutFilter.selectedSegmentIndex {
-        case FILTER_ALL:        count = AppData.shared.getWorkoutCount()
-        case FILTER_TYPE:       count = WorkoutType.count
-        case FILTER_KIND:       count = WorkoutKind.count
-        default:                break
-        }
-        return count
-    }
-    
-    //
-    //  Returns true if the row in the table supports begining editable. We use this method
-    //  in conjunction with editingStyle to allow the user to swipe and see the delete button.
-    //
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return false
+        return self.filteredWorkouts.count
     }
     
     // ---------------------------------------------------------------------------------------------
     // MARK: - UITableViewDelegate Methods
     
     //
-    //  We support the delete action. So, if the user swipes on a table cell from right to left,
-    //  we show a delete button and allow for the delete if tapped.
-    //
-    override func tableView(_ tableView: UITableView, commit editingStyle:   UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    }
-    
-    //
     //  The row is about to be selected.
     //
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         //
-        //  Set the selected athlete.
+        //  Set which workout the user is selecting.
         //
         self.selectedWorkout = indexPath.row
+
         return indexPath
     }
     
@@ -206,14 +156,12 @@ class WorkooutViewController: UITableViewController {
     }
     
     // ---------------------------------------------------------------------------------------------
-    // MARK: - IBActions
+    // MARK: - Public Methods
     
-    //
-    //  When the user changes the value of our filter (the UISegmentControl), this method is called
-    //  that will alert us of the new value.
-    //
-    @IBAction func workoutFilterValueChanged(_ sender: UISegmentedControl) {
-        self.tableView.reloadData()
+    public func filterByType(type: WorkoutType) {
+        self.filterByType = type
+    }
+    public func filterByKind(kind: WorkoutKind) {
+        self.filterByKind = kind
     }
 }
-

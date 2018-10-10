@@ -288,5 +288,19 @@ class AppData: NSObject {
     public func getWorkout(at index: Int) -> Workout {
         return self.workouts[index]
     }
+    
+    //
+    //  This method returns a list of workouts filtered by type.
+    //
+    public func getWorkoutsByType(_ type: WorkoutType) -> [Workout] {
+        return self.workouts.filter { $0.type == type}
+    }
+    
+    //
+    //  This method returns a list of workouts filtered by kind.
+    //
+    public func getWorkoutsByKind(_ kind: WorkoutKind) -> [Workout] {
+        return self.workouts.filter { $0.kind == kind}
+    }
 }
 

@@ -12,6 +12,7 @@
 		5F012A97216CE77900C5CCDB /* KindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F012A96216CE77900C5CCDB /* KindViewController.swift */; };
 		5F012A99216CE7F200C5CCDB /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F012A98216CE7F200C5CCDB /* DifficultyViewController.swift */; };
 		5F22A5BB2163CC7300C12135 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F22A5BA2163CC7300C12135 /* UIColor+Extension.swift */; };
+		5F3727E5216DDE1D005FCCA1 /* WorkoutFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3727E4216DDE1D005FCCA1 /* WorkoutFilterViewController.swift */; };
 		5F483E72216CD48800912DE1 /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F483E71216CD48800912DE1 /* AddWorkoutViewController.swift */; };
 		5F49F5B02165405D00403717 /* AthleteInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F49F5AF2165405D00403717 /* AthleteInfoViewController.swift */; };
 		5F529AD0216B5BA500D2E7AB /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F529ACF216B5BA500D2E7AB /* WorkoutViewController.swift */; };
@@ -46,6 +47,7 @@
 		5F012A96216CE77900C5CCDB /* KindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindViewController.swift; sourceTree = "<group>"; };
 		5F012A98216CE7F200C5CCDB /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
 		5F22A5BA2163CC7300C12135 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		5F3727E4216DDE1D005FCCA1 /* WorkoutFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFilterViewController.swift; sourceTree = "<group>"; };
 		5F483E71216CD48800912DE1 /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewController.swift; sourceTree = "<group>"; };
 		5F49F5AF2165405D00403717 /* AthleteInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteInfoViewController.swift; sourceTree = "<group>"; };
 		5F529ACF216B5BA500D2E7AB /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				5F529ACF216B5BA500D2E7AB /* WorkoutViewController.swift */,
+				5F3727E4216DDE1D005FCCA1 /* WorkoutFilterViewController.swift */,
 				5F529ACE216B5B9100D2E7AB /* AddWorkout */,
 			);
 			path = Workout;
@@ -336,6 +339,7 @@
 				5FB248A021651CDD00AC2ABF /* AthleteDetailViewController.swift in Sources */,
 				5F22A5BB2163CC7300C12135 /* UIColor+Extension.swift in Sources */,
 				5F66F936215BD07600411E65 /* Workout.swift in Sources */,
+				5F3727E5216DDE1D005FCCA1 /* WorkoutFilterViewController.swift in Sources */,
 				5F66F92F215BBF8C00411E65 /* Sport.swift in Sources */,
 				5FEF5B552164B7C4008E428B /* AhtleteDelegate.swift in Sources */,
 				5F529AD0216B5BA500D2E7AB /* WorkoutViewController.swift in Sources */,

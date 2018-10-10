@@ -149,13 +149,39 @@
         <scene sceneID="cOK-tB-uW3">
             <objects>
                 <tableViewController id="1yA-SD-fA9" customClass="WorkooutViewController" customModule="Workout" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ag5-xk-PS4">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ag5-xk-PS4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="H4F-On-7Bn">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SYp-3o-GWe">
+                                    <rect key="frame" x="75" y="8" width="225" height="29"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="28" id="jAS-wH-0Da"/>
+                                    </constraints>
+                                    <segments>
+                                        <segment title="All"/>
+                                        <segment title="Type"/>
+                                        <segment title="Kind"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="workoutFilterValueChanged:" destination="1yA-SD-fA9" eventType="valueChanged" id="yUU-Uq-Pc8"/>
+                                    </connections>
+                                </segmentedControl>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="SYp-3o-GWe" firstAttribute="centerX" secondItem="H4F-On-7Bn" secondAttribute="centerX" id="AUq-U0-O3x"/>
+                                <constraint firstItem="SYp-3o-GWe" firstAttribute="leading" secondItem="H4F-On-7Bn" secondAttribute="leading" constant="75" id="EtH-8a-w2j"/>
+                                <constraint firstItem="SYp-3o-GWe" firstAttribute="top" secondItem="H4F-On-7Bn" secondAttribute="top" constant="8" id="KJr-6m-l5P"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="workoutCell" textLabel="6GZ-bb-ke2" detailTextLabel="MRc-2s-QaW" style="IBUITableViewCellStyleSubtitle" id="1rt-PP-MSy">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1rt-PP-MSy" id="cp9-1u-htw">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -182,7 +208,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="workoutTypeCell" textLabel="L0J-eC-kQy" style="IBUITableViewCellStyleDefault" id="658-4v-3Lh">
-                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="658-4v-3Lh" id="5xk-be-nvT">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -197,6 +223,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="E59-U1-o3M" kind="show" identifier="workoutFilterSegue" id="SQv-Sz-RV4"/>
+                                    <segue destination="E59-U1-o3M" kind="show" identifier="workoutFilterAccessorySegue" trigger="accessoryAction" id="qjE-F1-Oic"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -211,10 +241,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="workoutFilter" destination="SYp-3o-GWe" id="Cf0-iY-Zj8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52N-dS-IHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769" y="-1814"/>
+            <point key="canvasLocation" x="1768.8" y="-1814.8425787106448"/>
         </scene>
         <!--Workouts-->
         <scene sceneID="kfG-6I-EfK">
@@ -749,6 +782,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HFv-wU-yQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5062" y="-2192"/>
+        </scene>
+        <!--Filter By-->
+        <scene sceneID="cHm-A1-gOL">
+            <objects>
+                <tableViewController title="Filter By" id="E59-U1-o3M" customClass="WorkooutFilterViewController" customModule="Workout" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ygh-1L-eOp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="workoutCell" textLabel="1BW-KH-Nn3" detailTextLabel="37J-wI-sdf" style="IBUITableViewCellStyleSubtitle" id="ZYV-fw-fAZ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZYV-fw-fAZ" id="xcw-gv-Rns">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1BW-KH-Nn3">
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="37J-wI-sdf">
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="zE3-ds-Wi2" kind="show" identifier="workoutFilterBySegue" id="ceI-Fl-WOc"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="E59-U1-o3M" id="Zry-ZI-cGj"/>
+                            <outlet property="delegate" destination="E59-U1-o3M" id="Vef-ex-aog"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dit-DO-hoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2537" y="-1012"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gz9-gR-4ic">
@@ -1371,12 +1451,13 @@
         <image name="Dumbell" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2yL-dI-ZjE"/>
+        <segue reference="ceI-Fl-WOc"/>
         <segue reference="ubx-PL-8CL"/>
         <segue reference="NWN-H8-0jj"/>
         <segue reference="cIo-H8-mkU"/>
         <segue reference="hU2-m5-YHU"/>
         <segue reference="Mbk-3W-e58"/>
+        <segue reference="qjE-F1-Oic"/>
         <segue reference="Yft-H4-eR3"/>
         <segue reference="gCk-rP-cW2"/>
     </inferredMetricsTieBreakers>
