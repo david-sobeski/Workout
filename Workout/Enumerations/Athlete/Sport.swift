@@ -58,10 +58,10 @@ enum Sport: Int {
         case .triathlon:    return UIColor.magenta
         case .swimming:     return UIColor.orange
         case .golf:         return UIColor.purple
-        case .cricket:      return UIColor().hexStringToUIColor("#BDB76B")  // Dark Khaki
-        case .rugby:        return UIColor().hexStringToUIColor("#F5DEB3")  // Wheat
-        case .wrestling:    return UIColor().hexStringToUIColor("#8B0000")  // Dark Red
-        case .autoracing:   return UIColor().hexStringToUIColor("#ADD8E6")  // Light Blue
+        case .cricket:      return UIColor.darkKhaki //UIColor().hexStringToUIColor("#BDB76B")  // Dark Khaki
+        case .rugby:        return UIColor.wheat //UIColor().hexStringToUIColor("#F5DEB3")  // Wheat
+        case .wrestling:    return UIColor.darkRed// UIColor().hexStringToUIColor("#8B0000")  // Dark Red
+        case .autoracing:   return UIColor.lightBlue// UIColor().hexStringToUIColor("#ADD8E6")  // Light Blue
         }
     }
     

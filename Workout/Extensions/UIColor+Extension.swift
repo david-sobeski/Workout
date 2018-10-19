@@ -10,7 +10,15 @@ import UIKit
 //
 //  This extension allows for the passing of a HEX value to a UIColor.
 //
-extension UIColor {    
+extension UIColor {
+    //
+    //  The following definitons are new colors based on the safe web color palette.
+    //
+    public class var darkKhaki: UIColor     { return UIColor().hexStringToUIColor("#BDB76B") }
+    public class var wheat: UIColor         { return UIColor().hexStringToUIColor("#F5DEB3") }
+    public class var darkRed: UIColor       { return UIColor().hexStringToUIColor("#8B0000") }
+    public class var lightBlue: UIColor     { return UIColor().hexStringToUIColor("#ADD8E6") }
+    
     //
     //  Given a hex string in the format #FFFFFF or FFFFFF, convert the string to a UIColor.
     //
